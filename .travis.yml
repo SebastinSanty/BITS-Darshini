@@ -4,7 +4,9 @@ jdk: oraclejdk7
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y tomcat7 tomcat7-admin tomcat7-common
-  - ./conf/travis.sh
+  - sudo cp -rf conf/settings.xml /usr/share/maven/conf/settings.xml
+  - sudo echo "export CATALINA_BASE=/var/lib/tomcat7" >> /usr/share/tomcat7/bin/setenv.sh
+  - sudo cp -rf conf/tomcat-users.xml /var/lib/tomcat7/conf/tomcat-users.xml
 install: true
 script:
   - mvn package
