@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get install -y tomcat7 tomcat7-admin tomcat7-common
 install: true
 before_script:
-  - ./conf/travis.sh
+  - conf/travis.sh
 script:
   - mvn package
   - sudo service tomcat7 restart
