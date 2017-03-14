@@ -4,9 +4,8 @@ jdk: oraclejdk7
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y tomcat7 tomcat7-admin tomcat7-common
-install: true
-after_install:
   - ./conf/travis.sh
+install: true
 script:
   - mvn package
   - sudo service tomcat7 restart
